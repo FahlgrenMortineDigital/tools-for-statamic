@@ -8,3 +8,11 @@ Converts entries or terms to an api resource.  Can be a query or collection.
 {{ collection | make_resource | to_json | sanitize }}
 {{ query | make_resource | to_json | sanitize }}
 ```
+
+## Tags
+### RandomString
+Creates a random string using the `Str::random($length)` Laravel function.  Default length is 20.
+```antlers
+{{ random_string }}
+{{ random_string length="10" }}
+```
