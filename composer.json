@@ -1,0 +1,29 @@
+{
+    "name": "fahlgrendigital/tools-for-statamic",
+    "description": "Various tools commonly used in our Statamic projects.",
+    "autoload": {
+        "psr-4": {
+            "FahlgrenDigital\\ToolsForStatamic\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Tools for Statamic",
+            "description": "Library of tools used as a Statamic addon"
+        },
+        "laravel": {
+            "providers": [
+                "FahlgrenDigital\\ToolsForStatamic\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "statamic/cms": "^4.9"
+    },
+    "config": {
+        "allow-plugins": {
+            "pixelfear/composer-dist-plugin": true
+        }
+    }
+}
