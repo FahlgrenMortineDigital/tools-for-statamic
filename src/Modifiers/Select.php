@@ -18,14 +18,14 @@ class Select extends Modifier
      */
     public function index($value, $params, $context)
     {
-        $keys = $params[0];
+        $keys = explode(',', $params[0]);
 
         if (!is_array($keys)) {
             $keys = [$keys];
         }
 
-        if (($wasArray = is_array($value) && Arr::isAssoc($value))) {
-            $value = collect([$value]);
+        if (($wasArray = is_array($value) && !Arr::isAssoc($value))) {
+            $value = collect($value);
         }
 
         if (Compare::isQueryBuilder($value)) {
