@@ -35,7 +35,7 @@ class GlideSupport
                 $path = $target->value();
             }
         } else if ($target instanceof \Statamic\Assets\Asset) {
-            $path = $target->path();
+            $path = $target->absoluteUrl();
         }
 
         /** @var GlideImageManipulator $manipulator */
