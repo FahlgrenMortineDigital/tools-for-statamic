@@ -22,14 +22,20 @@ class GlideSupport
         }
     }
 
-    public static function getManipulator(Value $target): GlideImageManipulator
+    public static function getManipulator($target): GlideImageManipulator
     {
-        if ($target->value() instanceof \Statamic\Assets\Asset) {
-            /** @var \Statamic\Assets\Asset $asset */
-            $asset = $target->value();
-            $path  = $asset->absoluteUrl();
-        } else {
-            $path = $target->value();
+        $path = null;
+
+        if($target instanceof Value) {
+            if ($target->value() instanceof \Statamic\Assets\Asset) {
+                /** @var \Statamic\Assets\Asset $asset */
+                $asset = $target->value();
+                $path  = $asset->absoluteUrl();
+            } else {
+                $path = $target->value();
+            }
+        } else if ($target instanceof \Statamic\Assets\Asset) {
+            $path = $target->path();
         }
 
         /** @var GlideImageManipulator $manipulator */
