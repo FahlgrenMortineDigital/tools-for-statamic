@@ -6,6 +6,11 @@
             "FahlgrenDigital\\ToolsForStatamic\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "FahlgrenDigital\\ToolsForStatamic\\Tests\\": "tests/"
+        }
+    },
     "extra": {
         "statamic": {
             "name": "Tools for Statamic",

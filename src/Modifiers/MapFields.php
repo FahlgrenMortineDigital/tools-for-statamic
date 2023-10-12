@@ -32,7 +32,7 @@ class MapFields extends Modifier
             $new = [];
             foreach($params as $param) {
                 if( $this->isEntryResource($item) ) {
-                    $new[$param] = $param === 'id' ? $item->id : $item->get($param);
+                    $new[$param] = $item->{$param};
                 } else {
                     $new[$param] = $item[$param];
                 }
