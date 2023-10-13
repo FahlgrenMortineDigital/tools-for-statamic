@@ -27,12 +27,21 @@ class ApiRouteList extends Modifier
         }
 
         if($this->isCollection($value)) {
-            return $value->map(function($item) {
-                return $item->apiUrl();
-            });
+            return $this->mapCollectionValues($value);
+        } else if(is_iterable($value)) {
+            $value = collect($value);
+
+            return $this->mapCollectionValues($value);
         }
 
         return $value;
+    }
+
+    private function mapCollectionValues(Collection $collection): Collection
+    {
+        return $collection->map(function($item) {
+            return $item->apiUrl();
+        });
     }
 
     protected function getByType($item)
