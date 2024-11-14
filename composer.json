@@ -23,8 +23,8 @@
         }
     },
     "require": {
-        "php": "^8.0",
-        "statamic/cms": "^4.9"
+        "php": "^8.2",
+        "statamic/cms": "^5.0"
     },
     "config": {
         "allow-plugins": {
