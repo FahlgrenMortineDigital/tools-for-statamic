@@ -7,6 +7,7 @@ use Statamic\Facades\Compare;
 use Statamic\Http\Resources\API\EntryResource;
 use Statamic\Http\Resources\API\TermResource;
 use Statamic\Modifiers\Modifier;
+use Statamic\Taxonomies\LocalizedTerm;
 use Statamic\Taxonomies\Term;
 
 class MakeResource extends Modifier
@@ -36,7 +37,7 @@ class MakeResource extends Modifier
             return app(EntryResource::class)::make($item);
         }
 
-        if( $item instanceof Term) {
+        if( $item instanceof Term || $item instanceof LocalizedTerm ) {
             return app(TermResource::class)::make($item);
         }
 
